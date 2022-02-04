@@ -1,0 +1,10 @@
+0	Leon	potion	50
+0	Brock	food	20
+0	May	medication	100
+0	Team rocket	hot air ballon	0
+1	Charizard	10	2	50	25	Static	10	5
+1	Pikachu	10	2	50	25	Blaze	10	5
+1	Squirtle	10	2	50	25	Torrent	10	5
+1	Bulbasaur	10	2	50	25	Overgrow	10	5
+1	Snorlax	10	2	50	25	Snore	10	5
+1	Meowth	10	2	50	25	Tough claws	10	5
