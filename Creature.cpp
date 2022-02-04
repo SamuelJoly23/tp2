@@ -241,11 +241,11 @@ bool operator==(const std::string& nom, const Creature& creature)
 // TODO: Faire l'affichage de la creature en fonction de son nom, son
 // attaque, sa defense, ses points de vie, ses points de vie total, son
 // energie, son niveau, son experience, son experience ncessaire et son pouvoir ********************************
-ostream& operator<<(std::ostream& os, const Creature& creature)
-{
-	
-
-
-
+ostream& operator<<(std::ostream& os, const Creature& creature) {
+	os << creature.nom_ << " a " << creature.attaque_ << " en attaque et " << creature.defense_ << " en defence," << endl;
+	os << "Il a " << creature.pointDeVieTotal_ << "/" << creature.pointDeVieTotal_ << " PV et " << creature.energie_ << "/" << creature.energieTotal_ << " Energie " << endl;
+	os << "Il est au niveau " << creature.niveau_ << " avec " << creature.experience_ << " d'XP" << endl;
+	os << "Il lui manque " << creature.experienceNecessaire_ << " jusqu'au prochain niveau" << endl;
+	os <<"Son pouvoir est : " << creature.obtenirPouvoir() << endl;
 	return os;
 }
