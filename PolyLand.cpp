@@ -117,8 +117,10 @@ void PolyLand::infoDresseur(const string& nom) const {
 
 // TODO: Ajouter un dresseur
 PolyLand& PolyLand::operator+= (const shared_ptr<Dresseur> &dresseur) {
-
-	return ;
+	if (ajouterDresseur(dresseur) == true) {
+		this->dresseurs_ = dresseurs_;
+	}
+	return *this;
 }
 
 // TODO: Retirer un dresseur
