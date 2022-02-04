@@ -21,5 +21,6 @@ void ObjetMagique::modifierBonus(int bonus) {
 
 // TODO: Afficher le nom et le bonus de l'objet magique
 ostream& operator<<(ostream& os, const ObjetMagique& objet) {
+	os << "L'objet " << objet.obtenirNom() << " fourni un bonus de " << objet.obtenirBonus() << endl;
 	return os ;
 }
