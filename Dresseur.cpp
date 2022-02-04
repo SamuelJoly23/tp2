@@ -53,35 +53,76 @@ void Dresseur::modifierCreature(vector<shared_ptr<Creature>>& creatures) {
 }
 
 // TODO: Ajouter une creature s'elle n'est pas deja presente
-bool Dresseur::ajouterCreature(const shared_ptr<Creature>& creature) {	
-	
-	return true;
+bool Dresseur::ajouterCreature(const shared_ptr<Creature>& creature) {
+	bool ajoute = true;
+	for (unsigned int i = 0; i < creatures_.size(); i++) {
+		if (creatures_[i]->obtenirNom() == creature->obtenirNom()) {
+			ajoute = false;
+		}
+	}
+	if (ajoute == true) {
+		creatures_.push_back(creature);
+	}
+	return ajoute;
 }
 
 // TODO: Supprimer la creature s'elle est presente
 bool Dresseur::supprimerCreature(const string& nom) {
-	
-	return false;
+	bool supprime = false;
+	for (auto& creature : creatures_) {
+		// vérifier si le contact est dans le répertoire
+		if (creature->obtenirNom() == nom) {
+			supprime = true;
+			// Retrait de l'élément du vecteur
+			creature = creatures_.back();
+			creatures_.pop_back();
+		}
+	}
+
+	return supprime;
 }
 
 // TODO: Afficher le nom du dresseur, le nombre de creature, les creatures et l'objet magique
 // indice: utiliser les surcharges des operateur << de creatures_ et d'objetMagique_
 ostream& operator<<(ostream& os, const Dresseur& dresseur) {
 	
-	return os;
+	return os << dresseur.obtenirNom() << dresseur.obtenirNombreCreatures() << dresseur.creatures_ << dresseur.obtenirObjetMagique() << std::endl;
 }
 
 // TODO: Comparer si les dresseurs ont les memes creatures
 bool Dresseur::operator==(const Dresseur& dresseur) const {
+	bool egal = false;
+	int size = 0;
+	if (creatures_.size() == dresseur.creatures_.size()) {
+
+		for (int i = 0; i < creatures_.size(); i++) {
+			for (int j = 0; j < creatures_.size(); i++) {
+				if (creatures_[i]->obtenirNom() == dresseur.creatures_[j]->obtenirNom()) {
+					size++;
+				}
+			}
+		}
+		if (size == creatures_.size()) {
+			egal = true;
+		}
+	}
 	 return true;
 }
 
 // TODO: Comparer le nom entre en parametre a l'attribut de l'objet courant
 bool Dresseur::operator==(const std::string& nom) const {
-	 return  true;
+	bool egal = false;
+	if (this->nom_ == nom) {
+		egal = true;
+	}
+	
+	return  egal;
 }
 
 // TODO: Comparer le nom du dresseur entre en parametre a l'attribut de l'objet  en paramètre
 bool operator==(const std::string& nom, const Dresseur& dresseur) {
-	return true;
+	if (nom == dresseur.nom_) {
+		return true;
+	}
+	return false;
 }
