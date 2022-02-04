@@ -11,8 +11,19 @@ PolyLand::PolyLand() {}
 
 // TODO: Ajouter des dresseurs a l'attributs dresseurs_.
 // Si un dresseur est deja present dans le vecteur des dresseurs, false est
-// retourne. Si le dresseur n'a pas ete ajoute, true est retourne.
-bool PolyLand::ajouterDresseur(const shared_ptr<Dresseur> & dresseur) {
+// retourne. Si le dresseur n'a pas ete ajoute, true est retourne.******************** false est retourner???
+bool PolyLand::ajouterDresseur(const shared_ptr<Dresseur> & dresseur) { 
+	
+	/*for (auto& dresseur : dresseurs_) {
+		if (dresseur->obtenirNom() == dresseur->obtenirNom()) {
+		}
+	}*/
+	for (int i = 0; i < dresseurs_.size(); i++) {
+		if (dresseurs_[i]->obtenirNom() == dresseur->obtenirNom()) {
+			return false;
+		}
+	}
+	dresseurs_.push_back(dresseur);
 	
 	return true;
 }
@@ -22,12 +33,34 @@ bool PolyLand::ajouterDresseur(const shared_ptr<Dresseur> & dresseur) {
 // retourne. Si le dresseur n'a pas ete ajoute, true est retourne.
 bool PolyLand::ajouterCreature(const shared_ptr<Creature> & creature) {
 	
+	for (int i = 0; i < creatures_.size(); i++) {
+		if (creatures_[i]->obtenirNom() == creature->obtenirNom()) {
+			return false;
+		}
+	}
+	creatures_.push_back(creature);
+	
 	return true;
 }
 
-// TODO: Retire une dresseur
+// TODO: Retire un dresseur
 bool PolyLand::retirerDresseur(const string& nom) {
-	
+	for (auto& dresseur : dresseurs_) {
+		if (dresseur->obtenirNom() == dresseur->obtenirNom()) {//******************* pt pas la bonne technique 
+			
+			dresseur = dresseurs_.back();
+			dresseurs_.pop_back();
+			return true;
+		}
+	}
+	/*for (int i = 0; i < dresseurs_.size(); i++) {**********************technique charge td
+		if (dresseurs_[i]->obtenirNom() == nom) {
+			dresseurs_[i].
+		}
+	}*/
+
+
+
 	return false;
 }
 
