@@ -52,7 +52,7 @@ void Dresseur::modifierCreature(vector<shared_ptr<Creature>>& creatures) {
 	creatures_ = creatures;
 }
 
-// TODO: Ajouter une creature s'elle n'est pas deja presente
+// TODO: Ajouter une creature s'elle n'est pas deja presente************************************
 bool Dresseur::ajouterCreature(const shared_ptr<Creature>& creature) {
 	bool ajoute = true;
 	for (unsigned int i = 0; i < creatures_.size(); i++) {
@@ -68,25 +68,26 @@ bool Dresseur::ajouterCreature(const shared_ptr<Creature>& creature) {
 
 // TODO: Supprimer la creature s'elle est presente
 bool Dresseur::supprimerCreature(const string& nom) {
-	bool supprime = false;
 	for (auto& creature : creatures_) {
-		// vérifier si le contact est dans le répertoire
 		if (creature->obtenirNom() == nom) {
-			supprime = true;
 			// Retrait de l'élément du vecteur
 			creature = creatures_.back();
 			creatures_.pop_back();
+			return true;
 		}
 	}
 
-	return supprime;
+	return false;
 }
 
 // TODO: Afficher le nom du dresseur, le nombre de creature, les creatures et l'objet magique
 // indice: utiliser les surcharges des operateur << de creatures_ et d'objetMagique_
 ostream& operator<<(ostream& os, const Dresseur& dresseur) {
-	
-	return os << dresseur.obtenirNom() << dresseur.obtenirNombreCreatures() << dresseur.creatures_ << dresseur.obtenirObjetMagique() << std::endl;
+	os << ROUGE <<dresseur.obtenirNom() << FIN << " possede " << dresseur.obtenirNombreCreatures() << " creature(s) : " << endl;
+	for (unsigned int i = 0; i < dresseur.obtenirNombreCreatures(); i++) {
+		cout << *dresseur.creatures_[i]; 
+	}
+	return os;
 }
 
 // TODO: Comparer si les dresseurs ont les memes creatures
@@ -96,7 +97,7 @@ bool Dresseur::operator==(const Dresseur& dresseur) const {
 	if (creatures_.size() == dresseur.creatures_.size()) {
 
 		for (int i = 0; i < creatures_.size(); i++) {
-			for (int j = 0; j < creatures_.size(); i++) {
+			for (int j = 0; j < creatures_.size(); j++) {
 				if (creatures_[i]->obtenirNom() == dresseur.creatures_[j]->obtenirNom()) {
 					size++;
 				}
