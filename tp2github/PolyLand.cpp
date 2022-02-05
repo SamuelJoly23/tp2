@@ -164,7 +164,7 @@ PolyLand& PolyLand::operator-=(const shared_ptr<Creature>  &creature) {
 ostream& operator<<(ostream& os, const PolyLand& poly) {
 	
 	for (int i = 0; i < poly.dresseurs_.size(); i++) {
-		os << poly.dresseurs_[i];
+		os << *poly.dresseurs_[i];
 	}
 	return os;
 }
