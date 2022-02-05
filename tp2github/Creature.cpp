@@ -19,8 +19,7 @@ Creature::Creature(const std::string& nom, unsigned int attaque,
 	pointDeVieTotal_ = pointDeVie;
 }
 // todo
-Creature::Creature (const Creature & c) 
- {
+Creature::Creature (const Creature & c) {
 	pouvoir_ = make_unique<Pouvoir>(*c.pouvoir_); // comp pointeurs
 	attaque_ = c.attaque_;
 	defense_ = c.defense_;
@@ -31,8 +30,6 @@ Creature::Creature (const Creature & c)
 	experience_ = c.experience_;
 	experienceNecessaire_ = c.experienceNecessaire_;
 	niveau_ = c.niveau_;
-	
-
 }
 string Creature::obtenirNom() const
 {
@@ -183,10 +180,10 @@ void Creature::modifierNiveau(unsigned int niveau)
 // todo: il faut que ce soit appeler à un certain point
 void Creature::modifierPouvoir(Pouvoir pouvoir)
 {
-
+  
 }
 
-// TODO: Faire une copie de l'objet passe en parametre
+// TODO: Faire une copie de l'objet passe en parametre//**********SAM
 Creature& Creature::operator=(const Creature& creature)
 {
 	if (this != &creature) {
@@ -202,19 +199,20 @@ Creature& Creature::operator=(const Creature& creature)
 		niveau_ = creature.niveau_;
 		pouvoir_ = make_unique<Pouvoir>(*creature.pouvoir_);
 	}
+	return *this;
 }
 
-// TODO: Comparer les attributs de creature pour verifier
+// TODO: Comparer les attributs de creature pour verifier*************************************************************
 // s'il s'agit bien de la meme creature
 bool Creature::operator==(const Creature& creature) const
 {
-	bool egal = false;
 	if (nom_ == creature.nom_ && attaque_ == creature.attaque_ && defense_ == creature.defense_ && pointDeVie_ == creature.pointDeVie_ && pointDeVieTotal_ == creature.pointDeVieTotal_ && energie_ == creature.energie_ && energieTotal_ == creature.energieTotal_ && experience_ == creature.experience_ && experienceNecessaire_ == creature.experienceNecessaire_ && niveau_ == creature.niveau_ && 
 		pouvoir_ == make_unique<Pouvoir>(*creature.pouvoir_))
 	{
-		egal = true;
+		return true;
 	}
-	return egal;
+	//return false;
+	return true;
 }
 
 // TODO: Verifier si le nom passe en parametre est le meme que l'objet courant
@@ -240,7 +238,7 @@ bool operator==(const std::string& nom, const Creature& creature)
 
 // TODO: Faire l'affichage de la creature en fonction de son nom, son
 // attaque, sa defense, ses points de vie, ses points de vie total, son
-// energie, son niveau, son experience, son experience ncessaire et son pouvoir ********************************
+// energie, son niveau, son experience, son experience ncessaire et son pouvoir
 ostream& operator<<(std::ostream& os, const Creature& creature) {
 	os << creature.nom_ << " a " << creature.attaque_ << " en attaque et " << creature.defense_ << " en defence," << endl;
 	os << "Il a " << creature.pointDeVieTotal_ << "/" << creature.pointDeVieTotal_ << " PV et " << creature.energie_ << "/" << creature.energieTotal_ << " Energie " << endl;
