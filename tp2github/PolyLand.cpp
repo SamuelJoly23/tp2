@@ -18,7 +18,7 @@ bool PolyLand::ajouterDresseur(const shared_ptr<Dresseur> & dresseur) {
 			return false;
 		}
 	}
-
+	cout << dresseur->obtenirNom() << " a bien ete ajoute!" << endl;
 	dresseurs_.push_back(dresseur);
 	
 	return true;
@@ -33,6 +33,8 @@ bool PolyLand::ajouterCreature(const shared_ptr<Creature> & creature) {
 			return false;
 		}
 	}
+	cout << creature->obtenirNom() << " a bien ete ajoute!" << endl;
+
 	creatures_.push_back(creature);
 	return true;
 }
