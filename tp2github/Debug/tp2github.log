@@ -1,0 +1,15 @@
+﻿  Creature.cpp
+C:\Users\samue\OneDrive\Université\3 - H22\INF1010\TP\tp2 github\tp2\tp2github\Creature.cpp(124,18): warning C4018: '>': signed/unsigned mismatch
+  Dresseur.cpp
+C:\Users\samue\OneDrive\Université\3 - H22\INF1010\TP\tp2 github\tp2\tp2github\Dresseur.cpp(29,75): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\samue\OneDrive\Université\3 - H22\INF1010\TP\tp2 github\tp2\tp2github\Dresseur.cpp(35,70): warning C4018: '>': signed/unsigned mismatch
+C:\Users\samue\OneDrive\Université\3 - H22\INF1010\TP\tp2 github\tp2\tp2github\Dresseur.cpp(99,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\samue\OneDrive\Université\3 - H22\INF1010\TP\tp2 github\tp2\tp2github\Dresseur.cpp(100,22): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+  ObjetMagique.cpp
+  PolyLand.cpp
+C:\Users\samue\OneDrive\Université\3 - H22\INF1010\TP\tp2 github\tp2\tp2github\PolyLand.cpp(72,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\samue\OneDrive\Université\3 - H22\INF1010\TP\tp2 github\tp2\tp2github\PolyLand.cpp(168,20): warning C4018: '<': signed/unsigned mismatch
+  Pouvoir.cpp
+  Generating Code...
+  tp2github.vcxproj -> C:\Users\samue\OneDrive\Université\3 - H22\INF1010\TP\tp2 github\tp2\tp2github\Debug\tp2github.exe
